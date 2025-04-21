@@ -806,100 +806,124 @@ public class may_tinh extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-//    private double evaluateBasicExpression(String expression) throws Exception {
-//        double k = 0;
-//        if (expression.contains("^")) {
-//            String[] parts = expression.split("\\^");
-//            double base = Double.parseDouble(parts[0]);
-//            double exponent = Double.parseDouble(parts[1]);
-//            k = Math.pow(base, exponent);
-//        } else if (expression.contains("√")) {
-//            String numberStr = expression.replace("√", "");
-//            double number = Double.parseDouble(numberStr);
-//            k = Math.sqrt(number);
-//        } else if (expression.contains("%")) {
-//            String numberStr = expression.replace("%", "");
-//            double number = Double.parseDouble(numberStr);
-//            k = number * 0.01;
-//        } else if (expression.contains("+")) {
-//            String[] parts = expression.split("\\+");
-//            k = Double.parseDouble(parts[0]) + Double.parseDouble(parts[1]);
-//        } else if (expression.contains("-")) {
-//            String[] parts = expression.split("-");
-//            k = Double.parseDouble(parts[0]) - Double.parseDouble(parts[1]);
-//        } else if (expression.contains("*")) {
-//            String[] parts = expression.split("\\*");
-//            k = Double.parseDouble(parts[0]) * Double.parseDouble(parts[1]);
-//        } else if (expression.contains("/")) {
-//            String[] parts = expression.split("/");
-//            if (Double.parseDouble(parts[1]) == 0) {
-//                throw new ArithmeticException("Không thể chia cho 0");
-//            }
-//            k = Double.parseDouble(parts[0]) / Double.parseDouble(parts[1]);
-//        } else if (expression.contains("ln(")) {
-//            expression = expression.replace("ln(", "").replace(")", "");
-//            double number = Double.parseDouble(expression);
-//            k = Math.log(number);
-//        } else if (expression.contains("log(")) {
-//            expression = expression.replace("log(", "").replace(")", "");
-//            double number = Double.parseDouble(expression);
-//            k = Math.log10(number);
-//        } else if (expression.contains("sin(")) {
-//            expression = expression.replace("sin(", "").replace(")", "");
-//            double number = Double.parseDouble(expression);
-//            k = Math.sin(isDegree ? Math.toRadians(number) : number);
-//        } else if (expression.contains("cos(")) {
-//            expression = expression.replace("cos(", "").replace(")", "");
-//            double number = Double.parseDouble(expression);
-//            k = Math.cos(isDegree ? Math.toRadians(number) : number);
-//        } else if (expression.contains("tan(")) {
-//            expression = expression.replace("tan(", "").replace(")", "");
-//            double number = Double.parseDouble(expression);
-//            k = Math.tan(isDegree ? Math.toRadians(number) : number);
-//        } else if (expression.contains("cot(")) {
-//            expression = expression.replace("cot(", "").replace(")", "");
-//            double number = Double.parseDouble(expression);
-//            k = 1.0 / Math.tan(isDegree ? Math.toRadians(number) : number);
-//        } else if (expression.contains("!")) {
-//            expression = expression.replace("!", "");
-//            int number = Integer.parseInt(expression);
-//            int result = 1;
-//            for (int i = 1; i <= number; i++) {
-//                result *= i;
-//            }
-//            k = result;
-//        } else {
-//            throw new ArithmeticException("Biểu thức không hợp lệ");
-//        }
-//
-//        return k;
-//    }
+    private double test(String expression) throws Exception {
+        double k = 0;
+        if (expression.contains("^")) {
+            String[] parts = expression.split("\\^");
+            double base = Double.parseDouble(parts[0]);
+            double exponent = Double.parseDouble(parts[1]);
+            k = Math.pow(base, exponent);
+        } else if (expression.contains("√")) {
+            String numberStr = expression.replace("√", "");
+            double number = Double.parseDouble(numberStr);
+            k = Math.sqrt(number);
+        } else if (expression.contains("%")) {
+            String numberStr = expression.replace("%", "");
+            double number = Double.parseDouble(numberStr);
+            k = number * 0.01;
+        } else if (expression.contains("+")) {
+            String[] parts = expression.split("\\+");
+            k = Double.parseDouble(parts[0]) + Double.parseDouble(parts[1]);
+        } else if (expression.contains("-")) {
+            String[] parts = expression.split("-");
+            k = Double.parseDouble(parts[0]) - Double.parseDouble(parts[1]);
+        } else if (expression.contains("*")) {
+            String[] parts = expression.split("\\*");
+            k = Double.parseDouble(parts[0]) * Double.parseDouble(parts[1]);
+        } else if (expression.contains("/")) {
+            String[] parts = expression.split("/");
+            if (Double.parseDouble(parts[1]) == 0) {
+                throw new ArithmeticException("Không thể chia cho 0");
+            }
+            k = Double.parseDouble(parts[0]) / Double.parseDouble(parts[1]);
+        } else if (expression.contains("ln(")) {
+            expression = expression.replace("ln(", "").replace(")", "");
+            double number = Double.parseDouble(expression);
+            k = Math.log(number);
+        } else if (expression.contains("log(")) {
+            expression = expression.replace("log(", "").replace(")", "");
+            double number = Double.parseDouble(expression);
+            k = Math.log10(number);
+        } else if (expression.contains("sin(")) {
+            expression = expression.replace("sin(", "").replace(")", "");
+            double number = Double.parseDouble(expression);
+            k = Math.sin(isDegree ? Math.toRadians(number) : number);
+        } else if (expression.contains("cos(")) {
+            expression = expression.replace("cos(", "").replace(")", "");
+            double number = Double.parseDouble(expression);
+            k = Math.cos(isDegree ? Math.toRadians(number) : number);
+        } else if (expression.contains("tan(")) {
+            expression = expression.replace("tan(", "").replace(")", "");
+            double number = Double.parseDouble(expression);
+            k = Math.tan(isDegree ? Math.toRadians(number) : number);
+        } else if (expression.contains("cot(")) {
+            expression = expression.replace("cot(", "").replace(")", "");
+            double number = Double.parseDouble(expression);
+            k = 1.0 / Math.tan(isDegree ? Math.toRadians(number) : number);
+        } else if (expression.contains("!")) {
+            expression = expression.replace("!", "");
+            int number = Integer.parseInt(expression);
+            int result = 1;
+            for (int i = 1; i <= number; i++) {
+                result *= i;
+            }
+            k = result;
+        } else {
+            throw new ArithmeticException("Biểu thức không hợp lệ");
+        }
+
+        return k;
+    }
 private double evaluateBasicExpression(String expression) throws Exception {
-    // Chuyển √ → sqrt, cot → 1/tan
     expression = expression.replace("√", "sqrt");
     expression = expression.replaceAll("cot\\(([^)]+)\\)", "1/tan($1)");
+    expression = expression.replaceAll("(\\d+)!","fact($1)");
 
-    // Nếu đang bật chế độ Degree (chuyển sang radian)
     if (isDegree) {
         expression = expression.replaceAll("sin\\(([^)]+)\\)", "sin(toRad($1))")
                                .replaceAll("cos\\(([^)]+)\\)", "cos(toRad($1))")
                                .replaceAll("tan\\(([^)]+)\\)", "tan(toRad($1))");
-
-        Expression exp = new ExpressionBuilder(expression)
-            .functions(new net.objecthunter.exp4j.function.Function("toRad", 1) {
-                @Override
-                public double apply(double... args) {
-                    return Math.toRadians(args[0]);
-                }
-            })
-            .build();
-
-        return exp.evaluate();
-    } else {
-        Expression exp = new ExpressionBuilder(expression).build();
-        return exp.evaluate();
     }
+
+    ExpressionBuilder builder = new ExpressionBuilder(expression)
+        .function(new net.objecthunter.exp4j.function.Function("fact", 1) {
+            @Override
+            public double apply(double... args) {
+                int n = (int) args[0];
+                int result = 1;
+                for (int i = 1; i <= n; i++) {
+                    result *= i;
+                }
+                return result;
+            }
+        })
+        .function(new net.objecthunter.exp4j.function.Function("log", 1) {
+            @Override
+            public double apply(double... args) {
+                return Math.log10(args[0]); // log₁₀
+            }
+        })
+        .function(new net.objecthunter.exp4j.function.Function("ln", 1) {
+            @Override
+            public double apply(double... args) {
+                return Math.log(args[0]); // ln
+            }
+        });
+
+    if (isDegree) {
+        builder.function(new net.objecthunter.exp4j.function.Function("toRad", 1) {
+            @Override
+            public double apply(double... args) {
+                return Math.toRadians(args[0]);
+            }
+        });
+    }
+
+    Expression exp = builder.build();
+    return exp.evaluate();
 }
+
+
     
      private boolean isDegree = true; 
 
@@ -1041,7 +1065,6 @@ private double evaluateBasicExpression(String expression) throws Exception {
         double k = evaluateBasicExpression(expression);
         txtDisplay.setText(String.valueOf(k));
 
-        // Lưu lịch sử
         history.append(expression + " = " + k + "\n");
         historyArea.setText(history.toString());
 
